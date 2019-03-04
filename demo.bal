@@ -1,8 +1,8 @@
 import ballerina/http;
-import ballerina/docker;
+import ballerinax/docker;
 
 @docker:Expose{
-    
+
 }
 endpoint http: Listener listener {
     port: 9090
@@ -23,6 +23,6 @@ service<http:Service> helloWorld bind listener {
     sayHello(endpoint outBoundEP, http:Request request) {
         http:Response response = new;
         response.setTextPayload("Hello world! \n");
-        _ = outboundEP->respond(response);
+        _ = outBoundEP->respond(response);
     }
 }
