@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: my-app-deployment
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: myapp
   template:
     metadata:
       labels:
-        app: myapp
+        app: my-app
     spec:
       containers:
-      - name: myapp
+      - name: my-app
         image: my-app:latest
+        imagePullPolicy: "IfNotPresent"
         resources:
           limits:
             memory: "128Mi"
