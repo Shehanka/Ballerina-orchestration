@@ -5,19 +5,19 @@ import ballerinax/docker;
 
 }
 endpoint http: Listener listener {
-    port: 9090
+    port:9090
 };
 
 @http:ServiceConfig {
-    basePath: "/"
+    basePath:"/"
 }
 
 @docker:Config {
-    name: "my-app"
+    name:"my-app"
 }
 service<http:Service> helloWorld bind listener {
     @http:ResourceConfig {
-        path: "/"
+        path:"/"
     }
 
     sayHello(endpoint outBoundEP, http:Request request) {
